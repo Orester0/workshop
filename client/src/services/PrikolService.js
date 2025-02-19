@@ -8,7 +8,7 @@ const PrikolService = {
       const response = await axios.get(API_URL);
       return response.data;
     } catch (error) {
-      console.error("Помилка при завантаженні приколів:", error);
+      console.error("Error loading prikols:", error);
       return [];
     }
   },
@@ -18,7 +18,7 @@ const PrikolService = {
       const response = await axios.post(API_URL, { text, possibleReactions });
       return response.data;
     } catch (error) {
-      console.error("Помилка при створенні приколу:", error);
+      console.error("Error creating prikol:", error);
       throw error;
     }
   },
@@ -28,7 +28,7 @@ const PrikolService = {
       const response = await axios.put(`${API_URL}/${id}`, { text, possibleReactions });
       return response.data;
     } catch (error) {
-      console.error("Помилка при оновленні приколу:", error);
+      console.error("Error updating prikol:", error);
       throw error;
     }
   },
@@ -37,7 +37,7 @@ const PrikolService = {
     try {
       await axios.delete(`${API_URL}/${id}`);
     } catch (error) {
-      console.error("Помилка при видаленні приколу:", error);
+      console.error("Error deleting prikol:", error);
       throw error;
     }
   },
@@ -46,7 +46,7 @@ const PrikolService = {
     try {
       await axios.post(`${API_URL}/react/${id}`, { reaction });
     } catch (error) {
-      console.error("Помилка при додаванні реакції:", error);
+      console.error("Error reacting to prikol:", error);
       throw error;
     }
   }
